@@ -24,7 +24,7 @@ def neural_search(query, top_n=5):
 st.header("Neural Search Engine")
 query = st.text_input("Enter a query:")
 if st.button("Search"):
-    results = neural_search(query)
-    results = results.drop(columns=['combined_text'])
-    # print(results.columns)
-    st.write(results)
+    with st.spinner('Retrieving search results...'):
+        results = neural_search(query)
+        results = results.drop(columns=['combined_text'])
+        st.write(results)
